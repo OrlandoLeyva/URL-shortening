@@ -1,0 +1,114 @@
+/* TODO: GOOGLE FONTS IS NOT AVAILABLE ATM. SO DO NOT FORGET INCLUDING THE RIGHT FONTS */
+
+:root {
+    /* primary */
+    --Cyan: hsl(180, 66%, 49%);
+    --Dark-Violet: hsl(257, 27%, 26%);
+
+    /* Secondary */
+
+    --Red:-hsl(0, 87%, 67%);
+
+    /* Neutral */
+
+    --Gray:hsl(0, 0%, 75%);
+    --Grayish-Violet: hsl(257, 7%, 63%);
+    --Very-Dark-Blue: hsl(255, 11%, 22%);
+    --Very-Dark-Violet: hsl(260, 8%, 14%);
+
+    /* TYPOGRAPHY */
+
+    --fw-bold: 700;
+    --fw-regular: 500;
+}
+
+/* GENERAL | RESET */
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0
+}
+
+img,
+picture {
+    max-width: 100%;
+}
+
+a {text-decoration: none}
+ul, ol {list-style: none; margin: 0;}
+
+body {
+    font-size: 1.125rem;
+    margin-top: 2rem;
+}
+
+/** UTILS */
+ /* Define the space between elements and the viewport border */
+.inline-flow { margin-inline: 2rem;}
+.hidden {display: none;}
+
+
+/* HEADER */
+
+header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar {
+    grid-column: span 2;
+    background-color: var(--Dark-Violet);
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.navbar ul {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.navbar li:hover {
+    cursor: pointer;
+}
+
+.navbar a {
+    color: white;
+    font-weight: var(--fw-bold);
+    font-size: 1.3rem;
+}
+
+.navbar ul:first-child {
+    border-bottom: 1px solid var(--Gray);
+}
+
+.signup-link {
+    background-color: var(--Cyan);
+    padding: .8rem;
+    border-radius: 15px;
+    /* width: 100%; */
+}
+
+.menu-icon {
+    width: 35px;
+    aspect-ratio: 1;
+    justify-self: end;
+}
