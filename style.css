@@ -31,6 +31,7 @@
 body, html {
     padding: 0;
     margin: 0;
+    color: var(--Gray);
 }
 
 h1,
@@ -60,7 +61,7 @@ body {
 .hidden {display: none;}
 
 
-/* HEADER */
+/** HEADER */
 
 header {
     display: grid;
@@ -80,7 +81,9 @@ header {
     border-radius: 8px;
 }
 
-.navbar.hidden {display: none; transition: 1200ms;}
+@media (max-width: 739px){
+    .navbar.hidden {display: none; transition: 1200ms;}
+}
 
 .navbar ul {
     padding: 2rem;
@@ -115,3 +118,56 @@ header {
     aspect-ratio: 1;
     justify-self: end;
 }
+
+/* Active states */
+
+.navbar a:hover {
+    color: var(--Very-Dark-Violet);
+}
+
+#signup-link a:hover {
+    color: white;
+    opacity: .8;
+}
+
+/* NAV BAR DESKTOP */
+
+@media (min-width: 740px) {
+    header { 
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+    .menu-icon {display: none;}
+
+    .navbar, .navbar ul {
+        flex-direction: row;
+        padding: 0;
+        align-items: center;
+        text-align: center;
+    }
+    .navbar {
+        flex-grow: 1;
+        justify-content: space-between;
+        background-color: unset;
+        padding: 0;
+    }
+    .navbar ul:first-child {
+        border: none;
+    }
+    .navbar a {
+        color: var(--Grayish-Violet);
+        font-weight: var(--fw-bold);
+        font-size: 1.3rem;
+    }
+
+    .signup-link {
+        background-color: var(--Cyan);
+        padding: .5rem 1rem;
+        border-radius: 15px;
+    }
+
+    .signup-link a {color: white;}
+}
+
+/** HEADER END*/

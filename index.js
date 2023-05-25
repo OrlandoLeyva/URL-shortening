@@ -4,6 +4,6 @@ const menuIcon = document.getElementById('menu-icon')
 menuIcon.addEventListener('click', toggleNavbar)
 
 function toggleNavbar(e){
-    console.log('toggling navbar')
+    console.log(navbar.display)
     navbar.classList.toggle('hidden')
 }
