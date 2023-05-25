@@ -1,7 +1,8 @@
 ICE BOX |   EMERGENCY |     IN PROGRESS  |      TESTING |   COMPLETE
                           set up CSS
 header:                   header:
-                            - navbar
+                            -navbar
+                            - navbar.active
  - hero
 main:
  - input.
@@ -23,3 +24,5 @@ main:
 
 footer
  
+WORKING ON:
+    ACTIVE/deactive NAVBAR

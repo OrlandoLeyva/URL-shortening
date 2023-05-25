@@ -1,7 +1,9 @@
-function defineVarVariable(){
-    var name = 'var'
+const navbar = document.getElementById('navbar')
+const menuIcon = document.getElementById('menu-icon')
+
+menuIcon.addEventListener('click', toggleNavbar)
+
+function toggleNavbar(e){
+    console.log('toggling navbar')
+    navbar.classList.toggle('hidden')
 }
-
-defineVarVariable()
-
-console.log(name)
