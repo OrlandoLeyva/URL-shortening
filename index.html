@@ -43,8 +43,9 @@
 
   <main>
     <form class="short-link-form inline-flow">
-      <input class="short-link-input type="text" placeholder="Shorten a link here...">
-      <button>Shorten it!</button>
+      <input name="link" id="link-input" class="short-link-input type="text" placeholder="Shorten a link here...">
+      <p class="short-link-form-error" id="short-link-form-error">Please add a link</p>
+      <button class="primary-button" id="get-short-link-button">Shorten it!</button>
     </form>
 
     <section class="advance-statistics inline-flow">

@@ -7,7 +7,7 @@
 
     /* Secondary */
 
-    --Red:-hsl(0, 87%, 67%);
+    --Red: hsl(0, 87%, 67%);
 
     /* Neutral */
 
@@ -295,6 +295,22 @@ main {
     font-weight: var(--fw-bold);
 }
 
+.short-link-input.error-state {
+    border: 1px solid var(--Red);
+    box-shadow: 0 0 10px var(--Red);
+}
+
+.short-link-input.error-state::placeholder {
+    color: var(--Red);
+}
+
+.short-link-form-error {
+    display: none;
+    color: var(--Red);
+    /* font-size: .875rem; */
+    font-weight: var(--fw-bold);
+}
+
 /* Advance statistics */
 
 .advance-statistics {
@@ -366,6 +382,11 @@ main {
 
     .short-link-input {
         flex-grow: 1;
+    }
+
+    .short-link-form-error {
+        order: 1;
+        align-self: center;
     }
 }
 
