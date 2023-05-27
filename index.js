@@ -7,9 +7,13 @@ const linkInput = document.getElementById('link-input')
 const getShortLinkButton = document.getElementById('get-short-link-button')
 const errorPlaceholder = document.getElementById('short-link-form-error')
 
-menuIcon.addEventListener('click', toggleNavbar)
+const resultsContainer = document.getElementById('result')
 
+menuIcon.addEventListener('click', toggleNavbar)
 getShortLinkButton.addEventListener('click', shortLink)
+resultsContainer.addEventListener('click', copyLink)
+
+let generatedShortLink;
 
 async function shortLink(e){
     e.preventDefault()
@@ -20,20 +24,43 @@ async function shortLink(e){
     } else {
         linkInput.classList.remove('error-state')
         errorPlaceholder.style.display = 'none'
-        console.log(linkInput.value)
-        // Getting link...
-        
-        const res = await fetch(`${API_BASE_URL}?url=${linkInput.value}`, {method: 'GET'})
-        const result = await res.json()
 
-        if (!result.ok) {
-            showError(result.error_code)
+        // Getting link...
+        getShortLinkButton.setAttribute('disabled', 'true')
+        getShortLinkButton.innerText = 'Getting results...'
+        const res = await fetch(`${API_BASE_URL}?url=${linkInput.value}`, {method: 'GET'})
+        const data = await res.json()
+        getShortLinkButton.removeAttribute('disabled')
+        getShortLinkButton.innerText = 'Shorten it!'
+
+        if (!data.ok) {
+            showError(data.error_code)
+        } else {
+            renderResults(data.result)
         }
         
-        console.log(result)
         linkInput.value = ''
     }
     // const link = 
+}
+
+function renderResults(data) {
+    generatedShortLink = data.short_link
+    resultsContainer.style.backgroundColor = 'white'
+    resultsContainer.innerHTML = `
+        <p class="original-link" id="original-link">${data.original_link}</p>
+        
+        <a href="${data.short_link}" class="generated-short-link" id="generated-short-link">${data.short_link}</a>
+        <button class="copy-link-button primary-button" id="copy-link-button">Copy</button>
+    `
+}
+
+function copyLink(e){
+    if (e.target.getAttribute('id') === 'copy-link-button'){
+        navigator.clipboard.writeText(generatedShortLink)
+        e.target.classList.add('copied')
+        e.target.innerText = 'copied!'
+    }
 }
 
 const errors = {
@@ -42,6 +69,7 @@ const errors = {
     '3': ' Wait a second and try again',
     '10': 'The link you entered is a disallowed link'
 }
+
 
 function showError(errorCode){
     linkInput.classList.add('error-state')
@@ -56,7 +84,7 @@ function cleanErrorProperties(){
 }
 
 function toggleNavbar(e){
-    console.log(navbar.display)
     navbar.classList.toggle('hidden')
 }
+
 
