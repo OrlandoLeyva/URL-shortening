@@ -190,13 +190,14 @@ header {
 /** HERO */
 
 .hero {
-    margin-top: 25px;
+    /* margin-top: 25px; */
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-    margin-bottom: 140px;
+    /* margin-bottom: 140px; */
+    margin-bottom: 80px;
 }
 
 .title {
@@ -233,7 +234,7 @@ header {
     }
 
     .hero {
-        margin-top: 80px;
+        margin-top: 30px;
     }
 
     .title {
@@ -475,6 +476,7 @@ footer {
 .result {
     padding: 1rem;
     margin-bottom: 80px;
+    margin-top: 30px;
 }
 
 .result > * {

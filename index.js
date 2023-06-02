@@ -37,6 +37,9 @@ async function shortLink(e){
             showError(data.error_code)
         } else {
             renderResults(data.result)
+            resultsContainer.scrollIntoView({
+                behavior: 'smooth'
+            })
         }
         
         linkInput.value = ''
